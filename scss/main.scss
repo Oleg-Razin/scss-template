@@ -1,2 +1,58 @@
 @import "default";
-
+$main_color: #484c55;
+$blue_color: #44c0c2;
+body{
+  font-family: 'Open Sans', sans-serif;
+  color: $main_color;
+}
+.header{
+  background-color: #ffffff;
+  //line-height: 100px;
+}
+.container{
+  max-width: 1170px;
+  margin: auto;
+}
+.container.flex{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo{
+  font-size: 43px;
+  font-family:'Lobster', cursive;
+  a{
+    text-transform: capitalize;
+    color: $blue_color;
+    text-decoration: none;
+  }
+  &:hover a{
+    color: #1b9172;
+  }
+}
+.nav{
+  ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: capitalize;
+    font-size: 15px;
+  }
+  li{
+    list-style: none;
+    padding: 44px 25px;
+    transition: 0.2s;
+    &:hover{
+      border-bottom: $blue_color solid 2px;
+      background-color: #f8f9fb;
+    }
+    &:hover a{
+      color: $blue_color;
+    }
+  }
+  a{
+    color: $main_color;
+    text-decoration: none;
+    display: inline-block;
+  }
+}
