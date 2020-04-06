@@ -18,26 +18,20 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center; }
-  @media only screen and (max-width: 768px) {
-    .container.flex .logo {
-      padding-left: 25px; } }
-  @media only screen and (max-width: 414px) {
+  @media screen and (max-width: 767px) {
     .container.flex {
-      flex-direction: column; }
-      .container.flex .logo {
-        padding: 15px 0; }
-      .container.flex .nav ul {
-        flex-direction: column;
-        font-size: 20px;
-        text-transform: uppercase; }
-        .container.flex .nav ul li {
-          padding: 20px 0; }
-          .container.flex .nav ul li:hover {
-            background-color: transparent; } }
+      flex-direction: row-reverse;
+      justify-content: space-around; } }
 
 .logo {
   font-size: 43px;
   font-family: 'Lobster', cursive; }
+  @media screen and (max-width: 1325px) {
+    .logo {
+      padding-left: 25px; } }
+  @media screen and (max-width: 767px) {
+    .logo {
+      padding: 15px 0; } }
   .logo a {
     text-transform: capitalize;
     color: #44c0c2;
@@ -45,7 +39,7 @@ body {
   .logo:hover a {
     color: #1b9172; }
 
-.nav ul {
+.nav .nav__items {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -55,6 +49,15 @@ body {
   list-style: none;
   padding: 44px 25px;
   transition: 0.2s; }
+  @media screen and (max-width: 767px) {
+    .nav li {
+      padding: 20px 0;
+      font-size: 25px;
+      font-weight: 700;
+      width: 100%;
+      text-align: center; }
+      .nav li:hover {
+        background-color: transparent; } }
   .nav li:hover {
     border-bottom: #44c0c2 solid 2px;
     background-color: #f8f9fb; }
@@ -64,6 +67,62 @@ body {
   color: #484c55;
   text-decoration: none;
   display: inline-block; }
+  @media screen and (max-width: 767px) {
+    .nav a {
+      color: white; }
+      .nav a:hover {
+        color: #1b9172; } }
+.nav .menu__icon {
+  display: none;
+  width: 45px;
+  height: 35px;
+  position: relative;
+  cursor: pointer; }
+  .nav .menu__icon span {
+    display: block;
+    position: absolute;
+    height: 9px;
+    width: 100%;
+    background: #44c0c2;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out; }
+    .nav .menu__icon span:nth-child(1) {
+      top: 0; }
+    .nav .menu__icon span:nth-child(2), .nav .menu__icon span:nth-child(3) {
+      top: 13px; }
+    .nav .menu__icon span:nth-child(4) {
+      top: 26px; }
+.nav.nav_state_open .menu__icon span {
+  background: #1b9172; }
+  .nav.nav_state_open .menu__icon span:nth-child(1) {
+    top: 18px;
+    width: 0;
+    left: 50%; }
+  .nav.nav_state_open .menu__icon span:nth-child(2) {
+    transform: rotate(45deg); }
+  .nav.nav_state_open .menu__icon span:nth-child(3) {
+    transform: rotate(-45deg); }
+  .nav.nav_state_open .menu__icon span:nth-child(4) {
+    top: 18px;
+    width: 0;
+    left: 50%; }
+.nav.nav_state_open .nav__items {
+  display: block; }
+@media screen and (max-width: 767px) {
+  .nav .menu__icon {
+    display: inline-block; }
+  .nav .nav__items {
+    position: absolute;
+    display: none;
+    top: 84px;
+    right: 0;
+    left: 0;
+    background-color: rgba(68, 192, 194, 0.8);
+    z-index: 5;
+    overflow: auto; } }
 
 .main_carousel {
   position: relative;
@@ -86,7 +145,7 @@ body {
   .owl-carousel .owl-nav button.owl-next {
     right: 50%;
     transform: translate3d(670px, -50%, 0); }
-    @media only screen and (max-width: 768px) {
+    @media screen and (max-width: 1325px) {
       .owl-carousel .owl-nav button.owl-next {
         right: 0;
         transform: translate3d(-50px, -50%, 0); } }
@@ -95,12 +154,15 @@ body {
   .owl-carousel .owl-nav button.owl-prev {
     left: 50%;
     transform: translate3d(-670px, -50%, 0); }
-    @media only screen and (max-width: 768px) {
+    @media screen and (max-width: 1325px) {
       .owl-carousel .owl-nav button.owl-prev {
         left: 0;
         transform: translate3d(50px, -50%, 0); } }
     .owl-carousel .owl-nav button.owl-prev:after {
       content: "\f137 "; }
+  @media screen and (max-width: 767px) {
+    .owl-carousel .owl-nav {
+      display: none; } }
 
 .carousel__title {
   position: absolute;

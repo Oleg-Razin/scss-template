@@ -1,0 +1,75 @@
+//Burger
+
+.menu__icon {
+  display: none;
+  width: 45px;
+  height: 35px;
+  position: relative;
+  cursor: pointer;
+
+  span {
+    display: block;
+    position: absolute;
+    height: 9px;
+    width: 100%;
+    background: $blue_color;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+
+    &:nth-child(1) {
+      top: 0;
+    }
+    &:nth-child(2), &:nth-child(3) {
+      top: 13px;
+    }
+    &:nth-child(4) {
+      top: 26px;
+    }
+  }
+}
+
+&.nav_state_open .menu__icon span{
+  background: #1b9172;
+  &:nth-child(1) {
+  top: 18px;
+  width: 0;
+  left: 50%;
+  }
+  &:nth-child(2) {
+  transform: rotate(45deg);
+  }
+  &:nth-child(3) {
+  transform: rotate(-45deg);
+  }
+  &:nth-child(4) {
+  top: 18px;
+  width: 0;
+  left: 50%;
+  }
+}
+
+&.nav_state_open .nav__items{
+  display: block;
+}
+
+@include max-screen(767px) {
+  .menu__icon{
+    display: inline-block;
+  }
+
+  .nav__items {
+    position: absolute;
+    display: none;
+    top: 84px;
+    right: 0;
+    left: 0;
+    //margin-top: 52px;
+    background-color: rgba($blue_color, 0.8);
+    z-index: 5;
+    overflow: auto;
+  }
+
+}

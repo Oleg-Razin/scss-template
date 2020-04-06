@@ -15,4 +15,18 @@ $(document).ready(function(){
             }
         }
     });
+
+
+
 });
+
+
+(function ($) {
+    $(function () {
+        $('.menu__icon').on('click', function () {
+            $(this).closest('.nav').toggleClass('nav_state_open');
+        });
+    });
+})(jQuery); 
+//# sourceURL=pen.js
+

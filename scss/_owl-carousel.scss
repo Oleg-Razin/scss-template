@@ -1,0 +1,48 @@
+.owl-carousel{
+  position: relative;
+  z-index: 1;
+  %slide__buttons{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 50px;
+    background-color: transparent;
+    width: 52px;
+    height: 52px;
+    position: absolute;
+    top: 50%;
+    outline: none;
+    color: #FFFFFF;
+  }
+  & .owl-nav button.owl-next{
+    @include max-screen(1325px){
+      right: 0;
+      transform: translate3d(-50px, -50%, 0);
+    }
+    @extend %slide__buttons;
+    right: 50%;
+    transform: translate3d(670px, -50%, 0);
+    &:after{
+      content: "\f138 ";
+    }
+  }
+  & .owl-nav button.owl-prev{
+
+    @include max-screen(1325px){
+      left: 0;
+      transform: translate3d(50px, -50%, 0);
+    }
+
+    @extend %slide__buttons;
+    left: 50%;
+    transform: translate3d(-670px, -50%, 0);
+    &:after{
+      content: "\f137 ";
+    }
+  }
+
+  @include max-screen(767px){
+    & .owl-nav{
+      display: none;
+    }
+  }
+}
