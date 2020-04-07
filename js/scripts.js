@@ -26,7 +26,11 @@ $(document).ready(function(){
         $('.menu__icon').on('click', function () {
             $(this).closest('.nav').toggleClass('nav_state_open');
         });
+        $('.menu__icon .nav__items').on('click', function () {
+            $(this).closest('.nav').removeClass('.nav_state_open');
+        });
+
     });
-})(jQuery); 
+})(jQuery);
 //# sourceURL=pen.js
 
