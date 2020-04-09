@@ -1,5 +1,5 @@
-@import "owl.carousel.min.css";
-@import "owl.theme.default.min.css";
+@import "../css/owl.carousel.min.css";
+@import "../css/owl.theme.default.min.css";
 
 .owl-carousel{
   position: relative;
@@ -16,19 +16,16 @@
     top: 50%;
     outline: none;
     color: #FFFFFF;
-    @include max-screen(767px){
-      color: #eeeef0;
-      top: 85%;
     }
-  }
 
   & .owl-nav button.owl-next{
     @include max-screen(1325px){
       right: 0;
       transform: translate3d(-50px, -50%, 0);
     }
-    @include max-screen(767px){
-      transform: translate3d(-25%, 50%, 0);
+    @include max-screen(768px){
+      display: none;
+      //transform: translate3d(-25%, 50%, 0);
     }
     @extend %slide__buttons;
     right: 50%;
@@ -43,8 +40,9 @@
       left: 0;
       transform: translate3d(50px, -50%, 0);
     }
-    @include max-screen(767px){
-      transform: translate3d(25%, 50%, 0);
+    @include max-screen(768px){
+      display: none;
+      //transform: translate3d(25%, 50%, 0);
     }
 
     @extend %slide__buttons;
@@ -54,6 +52,36 @@
       content: "\f137 ";
     }
   }
-
-
+  .owl-dots {
+    overflow: inherit;
+    position: absolute;
+    bottom:0;
+    left: 50%;
+    transform: translate3d(-50%, -20%, 0);
+    background-color: inherit;
+    width: 70vw;
+    margin: auto;
+    display: none;
+    justify-content: space-around;
+    @include max-screen(768px){
+      display: flex;
+    }
+    button.owl-dot {
+      overflow: inherit;
+      background-color: inherit;
+      border: none;
+      &.active{
+        span{
+          background-color: #485460;
+        }
+      }
+      span{
+        display: block;
+        border-radius: 50%;
+        background: white;
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
 }

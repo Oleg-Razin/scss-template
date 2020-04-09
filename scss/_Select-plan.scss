@@ -1,0 +1,114 @@
+.main__plan{
+  padding: 120px 0;
+  background-color: #f1f1f1;
+  @include max-screen(768px){
+    padding: 40px 0;
+  }
+}
+.plan__flex{
+  @extend %flex;
+  @include max-screen(900px){
+    justify-content: space-around;
+    flex-direction: column;
+  }
+}
+.select__plan{
+  width: 370px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+
+  %active-plan{
+    &:first-child{
+      background-color: $blue_color;
+    }
+    & a{
+      background-color: $blue_color;
+    }
+  }
+
+  &:hover{
+    box-shadow: 8px 9px 10px 0 rgba(#1b9172, 0.74);
+    transform: translate3d(-8px, -9px, 0);
+  }
+  &:hover li{
+    @extend %active-plan;
+  }
+
+  @include max-screen(768px){
+    max-width: 90vw;
+    margin-bottom: 20px;
+    &:hover{
+      box-shadow: 0 9px 10px 0 rgba(#1b9172,0.79);
+      transform: translate3d(0, -9px, 0);
+    }
+    &:hover li{
+      visibility: visible;
+      opacity: 1;
+      display: block;
+    }
+  }
+}
+.plan__items {
+  $lite_grey: #f8f9fb;
+  $title-plan_bg: #485460;
+  $footer-plan_bg: #f8f9fb;
+
+  li {
+    text-align: center;
+    list-style: none;
+    line-height: 46px;
+    color: #8c9299;
+    font-size: 14px;
+    display: block;
+    background-color: #fff;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+
+    &:first-child {
+      color: #fff;
+      font-size: 26px;
+      line-height: 75px;
+      background-color: $title-plan_bg;
+    }
+
+    &:nth-child(2) {
+      background-color: $footer-plan_bg;
+      color: $title-plan_bg;
+      font-size: 20px;
+      line-height: 70px;
+    }
+
+    &:last-child {
+      background-color: $footer-plan_bg;
+      color: $title-plan_bg;
+      font-size: 20px;
+      line-height: 100px;
+    }
+    @include max-screen(768px){
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.2s linear;
+      display: none;
+      &:first-child, &:nth-child(2), &:last-child{
+        display: block;
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+    a {
+      display: inline-block;
+      margin: auto;
+      color: white;
+      text-decoration: none;
+      line-height: 40px;
+      padding: 0 48px;
+      background-color: $title-plan_bg;
+      border-radius: 5px;
+      -webkit-transition: 0.3s;
+      transition: 0.3s;
+    }
+  }
+  &.active-plan li{
+    @extend %active-plan;
+  }
+}

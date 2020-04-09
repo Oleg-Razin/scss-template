@@ -52,17 +52,22 @@
 }
 
 &.nav_state_open .nav__items{
-  display: block;
+  opacity: 1;
+  visibility: visible;
 }
 
-@include max-screen(767px) {
+@include max-screen(768px) {
   .menu__icon{
     display: inline-block;
   }
 
   .nav__items {
     position: absolute;
-    display: none;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .3s cubic-bezier(.5, .3, .3, .1);
+    -webkit-transition: all .3s cubic-bezier(.5, .3, .3, .1);
     top: 84px;
     right: 0;
     left: 0;
@@ -71,5 +76,4 @@
     z-index: 5;
     overflow: auto;
   }
-
 }

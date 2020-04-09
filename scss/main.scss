@@ -1,4 +1,5 @@
 @import "default";
+@import "mixins";
 
 $main_color: #484c55;
 $blue_color: #44c0c2;
@@ -7,12 +8,6 @@ $blue_color: #44c0c2;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-@mixin max-screen($res) {
-  @media screen and (max-width: $res) {
-    @content;
-  }
 }
 
 body{
@@ -29,7 +24,7 @@ body{
 }
 .container.flex{
   @extend %flex;
-  @include max-screen(767px){
+  @include max-screen(768px){
     flex-direction: row-reverse;
     justify-content: space-around;
   }
@@ -43,7 +38,7 @@ body{
       padding-left: 25px;
   }
 
-  @include max-screen(767px){
+  @include max-screen(768px){
       padding: 15px 0;
   }
 
@@ -60,14 +55,14 @@ body{
 
 .nav{
   //menu item
-
   .nav__items {
     display: flex;
     justify-content: space-between;
     align-items: center;
     text-transform: capitalize;
     font-size: 15px;
-  }
+
+   }
 
   li{
     list-style: none;
@@ -75,7 +70,7 @@ body{
     transition: 0.2s;
     border-bottom: transparent solid 2px;
 
-    @include max-screen(767px) {
+    @include max-screen(768px) {
       padding: 20px 0;
       font-size: 25px;
       font-weight: 700;
@@ -100,32 +95,26 @@ body{
     text-decoration: none;
     display: inline-block;
 
-    @include max-screen(767px) {
+    @include max-screen(768px) {
       color: white;
       &:hover{
         color: #1b9172;
       }
     }
   }
-
   //Burger
-
   @import "nav-burger";
-
 }
 
 //carousel
-
 .main_carousel {
   position: relative;
 }
 
 //owl-carousel
-
 @import "owl-carousel";
 
 //carousel item
-
 .carousel__title{
   position: absolute;
   z-index: 2;
@@ -155,9 +144,14 @@ body{
     display: inline-block;
     padding: 23px 44px;
     color: #FFFFFF;
+    transition: .5s ease-out;
+    &:hover{
+      background-color: #fff;
+      color: #484c55;
+    }
   }
 
-  @include max-screen(767px){
+  @include max-screen(768px){
     padding: 0 15px;
     min-width: 100%;
 
@@ -173,7 +167,6 @@ body{
     }
   }
 
-
 .slide {
   max-height: 70vh;
 
@@ -183,36 +176,39 @@ body{
     overflow: hidden;
   }
 
-  @include max-screen(767px){
+  @include max-screen(768px){
     min-height: 80vh;
+    min-width: 1400px;
+    margin: 0 auto;
+  }
+  @include max-screen(767px){
     min-width: 1000px;
   }
     &:before {
-      content: '';
+      @include pseudo-apsol;
       width: 100%;
       height: 100%;
       left: 0;
       top: 0;
-      position: absolute;
       background-color: rgba($blue_color,0.5);
     }
 }
 
 //maine managers
-
 .main__manager{
   padding: 110px 0;
-  @include max-screen(767px){
+  @include max-screen(768px){
     padding: 50px 15px;
   }
 
   h2{
     font-size: 42px;
+    font-weight: 400;
     margin-bottom: 130px;
     text-align: center;
     text-transform: capitalize;
-    @include max-screen(767px){
-      margin-bottom: 30px;
+    @include max-screen(768px){
+      margin-bottom: 30px ;
     }
   }
 
@@ -220,7 +216,12 @@ body{
     @extend %flex;
     align-items: flex-start;
 
-    @include max-screen(767px){
+    @include max-screen(900px){
+      flex-wrap: wrap;
+      justify-content: center;
+
+    }
+    @include max-screen(425px){
       flex-direction: column;
       justify-content: space-around;
     }
@@ -229,7 +230,7 @@ body{
   .manager__ico{
     margin-bottom: 70px;
     text-align: center;
-    @include max-screen(767px){
+    @include max-screen(768px){
       margin-bottom: 15px;
     }
 
@@ -243,16 +244,28 @@ body{
   }
   .manager__item {
     line-height: 28px;
-    @include max-screen(767px){
+
+    @include max-screen(900px){
+      width: 50%;
       &:after{
-        content: "";
-        display: block;
+        @include pseudo-static;
+        height: 15px;
+        width: 70%;
+        margin: 0 auto 10px;
+        border-bottom:solid $blue_color 2px;
+      }
+    }
+    @include max-screen(768px){
+      width: 100%;
+      &:after{
+        @include pseudo-static;
         height: 15px;
         width: 70vw;
         margin: 0 auto 10px;
         border-bottom:solid $blue_color 2px;
       }
     }
+
     h3 {
       font-size: 22px;
       text-align: center;
@@ -266,9 +279,11 @@ body{
       text-align: center;
       padding: 0 10px;
       }
-
-
     }
   }
+//select plan
+@import "select-plan";
+//Footer
+@import "footer";
 
 
