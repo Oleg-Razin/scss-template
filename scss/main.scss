@@ -1,6 +1,3 @@
-@import "default";
-@import "mixins";
-
 $main_color: #484c55;
 $blue_color: #44c0c2;
 
@@ -9,6 +6,14 @@ $blue_color: #44c0c2;
   justify-content: space-between;
   align-items: center;
 }
+
+@import "default";
+@import "mixins";
+@import "nav-burger";
+@import "owl-carousel";
+@import "select-plan";
+@import "footer";
+
 
 body{
   font-family: 'Open Sans', sans-serif;
@@ -102,17 +107,13 @@ body{
       }
     }
   }
-  //Burger
-  @import "nav-burger";
+
 }
 
 //carousel
 .main_carousel {
   position: relative;
 }
-
-//owl-carousel
-@import "owl-carousel";
 
 //carousel item
 .carousel__title{
@@ -280,8 +281,8 @@ body{
     }
   }
 //select plan
-@import "select-plan";
+
 //Footer
-@import "footer";
+
 
 
